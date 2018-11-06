@@ -1,0 +1,29 @@
+name: pan-tort
+label: TORT
+description: UI for Test Output Response Tool utility
+type: service
+extends: NA
+variables:
+  - name: query_tag
+    description: Search Tag
+    default: query_tag
+    type_hint: text
+  - name: hashes
+    description: List of hashes
+    default:
+    type_hint: text
+  - name: output
+    description: Output Format
+    default: text
+    type_hint: dropdown
+    dd_list: "Text,Elasticsearch"
+  - name: hash_type
+    description: Format of Hashes
+    default: "md5"
+    type_hint: dropdown
+    dd_list: "MD5,SHA256,SHA1"
+
+snippets:
+  - name: tort-request
+    xpath: /
+    file: tort-payload.j2
