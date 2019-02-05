@@ -87,7 +87,11 @@ def process_hashes():
         # hash should have newlines replaced by HTML char for newline '%0A', 
         # let's split on that here to get a list
         # could also check for ',' and split on that too if necessary
-        if '%0A' in hashListString:
+        if len(hashListString) == 32:
+            # this is a single entry instead of a list!
+            hashList = list()
+            hashList.append(hashListString)
+        elif '%0A' in hashListString:
             hashList = hashListString.strip('%0A').split('%0A')
         elif ',' in hashListString:
             hashList = hashListString.split(',')
